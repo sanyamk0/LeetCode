@@ -7,14 +7,14 @@ public:
         while (r < n) {
             mp[s[r]]++;
             maxFreq = max(maxFreq, mp[s[r]]);
-            int diff = r - l + 1 - maxFreq;
-            while (diff > k) {
+            while (r - l + 1 - maxFreq > k) {
                 mp[s[l]]--;
                 l++;
-                maxFreq = max(maxFreq, mp[s[l]]);
-                diff--;
+                maxFreq = 0;
+                for (auto it : mp)
+                    maxFreq = max(maxFreq, it.second);
             }
-            if (diff <= k)
+            if (r - l + 1 - maxFreq <= k)
                 maxLen = max(maxLen, r - l + 1);
             r++;
         }
