@@ -7,13 +7,9 @@ public:
         while (r < n) {
             mp[s[r]]++;
             maxFreq = max(maxFreq, mp[s[r]]);
-            while (r - l + 1 - maxFreq > k) {
+            if (r - l + 1 - maxFreq > k) {
                 mp[s[l]]--;
                 l++;
-                // maxFreq = 0;
-                // for (auto it : mp)
-                //     maxFreq = max(maxFreq, it.second);
-                maxFreq = max(maxFreq, mp[s[r]]);
             }
             if (r - l + 1 - maxFreq <= k)
                 maxLen = max(maxLen, r - l + 1);
