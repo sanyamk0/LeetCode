@@ -6,9 +6,7 @@ public:
         mp[0] = 1;
         for (int i = 0; i < n; i++) {
             preSum += nums[i];
-            if (mp.find(preSum - goal) != mp.end()) {
-                cnt += mp[preSum - goal];
-            }
+            cnt += mp[preSum - goal];
             mp[preSum]++;
         }
         return cnt;
