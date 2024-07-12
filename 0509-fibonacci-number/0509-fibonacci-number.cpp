@@ -1,14 +1,13 @@
 class Solution {
 public:
     int fib(int n) {
-        if(n <= 1)
+        if (n <= 1)
             return n;
-        int a = 0, b = 1, c;
+        vector<int> f(n + 1);
+        f[0] = 0, f[1] = 1;
         for (int i = 2; i <= n; i++) {
-            c = a + b;
-            a = b;
-            b = c;
+            f[i] = f[i - 1] + f[i - 2];
         }
-        return b;
+        return f[n];
     }
 };
