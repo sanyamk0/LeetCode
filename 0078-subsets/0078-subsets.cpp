@@ -8,10 +8,10 @@ public:
         }
         // Take
         v.push_back(nums[i]);
-        solve(nums, ans, v, i + 1);
+        solve(nums, ans, v, i + 1); // 1
         // Not Take
         v.pop_back();
-        solve(nums, ans, v, i + 1);
+        solve(nums, ans, v, i + 1); // 2
     }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> ans;
