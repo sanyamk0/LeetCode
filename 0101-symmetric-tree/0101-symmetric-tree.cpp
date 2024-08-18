@@ -18,5 +18,7 @@ public:
         return (rootL->val == rootR->val) && check(rootL->left, rootR->right) &&
                check(rootL->right, rootR->left);
     }
-    bool isSymmetric(TreeNode* root) { return check(root->left, root->right); }
+    bool isSymmetric(TreeNode* root) {
+        return root == NULL || check(root->left, root->right);
+    }
 };
