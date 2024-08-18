@@ -12,6 +12,6 @@ public:
             }
             j++;
         }
-        return cnt;
+        return i;
     }
 };
