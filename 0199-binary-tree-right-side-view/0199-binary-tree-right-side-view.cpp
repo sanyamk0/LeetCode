@@ -18,10 +18,8 @@ public:
             return ans;
         queue<TreeNode*> q;
         q.push(root);
-        vector<vector<int>> bfs;
         while (!q.empty()) {
             int size = q.size();
-            vector<int> level;
             for (int i = 0; i < size; i++) {
                 TreeNode* node = q.front();
                 q.pop();
@@ -29,12 +27,9 @@ public:
                     q.push(node->left);
                 if (node->right)
                     q.push(node->right);
-                level.push_back(node->val);
+                if (i == size - 1)
+                    ans.push_back(node->val);
             }
-            bfs.push_back(level);
-        }
-        for (int i = 0; i < bfs.size(); i++) {
-            ans.push_back(bfs[i][bfs[i].size() - 1]);
         }
         return ans;
     }
