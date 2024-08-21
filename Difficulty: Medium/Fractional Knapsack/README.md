@@ -1,0 +1,11 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1">Fractional Knapsack</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given weights and values of <strong>n</strong> items, we need to put these items in a knapsack of capacity <strong>w</strong> to get the <strong>maximum</strong> total value in the knapsack. Return a double value representing the maximum value in knapsack.<br><strong>Note:</strong> Unlike 0/1 knapsack, you are <strong>allowed</strong> to break the item here.&nbsp;</span><span style="font-size: 18px;">The details of structure/class is defined in the comments above the given function.</span></p>
+<p><span style="font-size: 18px;"><strong>Examples :</strong></span></p>
+<pre><span style="font-size: 18px;"><strong>Input: </strong>n = 3, w = 50, value[] = [60,100,120], weight[] = [10,20,30]
+<strong>Output: </strong>240.000000<strong>
+Explanation: </strong>Take the item with value 60 and weight 10, value 100 and weight 20 and split the third item with value 120 and weight 30, to fit it into weight 20. so it becomes (120/30)*20=80, so the total value becomes 60+100+80.0=240.0 Thus, total maximum value of item we can have is 240.00 from the given capacity of sack. 
+</span></pre>
+<pre><span style="font-size: 18px;"><strong>Input: </strong>n = 2, w = 50, value[] = [60,100], weight[] = [10,20]
+<strong>Output: </strong>160.000000<strong>
+Explanation: </strong>Take both the items completely, without breaking. Total maximum value of item we can have is 160.00 from the given capacity of sack.</span></pre>
+<p><span style="font-size: 18px;"><strong>Expected Time Complexity</strong> : O(n log n)<br><strong>Expected Auxilliary Space</strong>: O(1)</span></p>
+<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 &lt;= n &lt;= 10<sup>5</sup><br>1 &lt;= w &lt;= 10<sup>9</sup><br></span><span style="font-size: 18px;">1 &lt;= value<sub>i</sub>, weight<sub>i</sub> &lt;= 10<sup>4</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Microsoft</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Greedy</code>&nbsp;<code>Algorithms</code>&nbsp;
