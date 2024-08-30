@@ -27,6 +27,6 @@ public:
         int i = 0;
         while (i < a.size() && i < b.size() && a[i] == b[i])
             i++;
-        return a[i - 1];
+        return b[i - 1];
     }
 };
