@@ -9,8 +9,8 @@ public:
             for (int j = i; j < n; j++) {
                 if (mp.find(s[j]) == mp.end()) {
                     cnt++;
-                    mp[s[j]] = j;
                     maxi = max(maxi, cnt);
+                    mp[s[j]] = j;
                 } else {
                     break;
                 }
