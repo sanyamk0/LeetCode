@@ -10,8 +10,8 @@ public:
                 if (mp.find(s[j]) == mp.end()) {
                     cnt++;
                     mp[s[j]] = j;
-                } else {
                     maxi = max(maxi, cnt);
+                } else {
                     break;
                 }
             }
