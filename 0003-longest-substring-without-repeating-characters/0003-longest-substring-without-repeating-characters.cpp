@@ -4,13 +4,13 @@ public:
         int n = s.length();
         int maxi = 0;
         for (int i = 0; i < n; i++) {
-            unordered_map<char, int> mp;
+            unordered_set<char> st;
             int cnt = 0;
             for (int j = i; j < n; j++) {
-                if (mp.find(s[j]) == mp.end()) {
+                if (st.find(s[j]) == st.end()) {
                     cnt++;
                     maxi = max(maxi, cnt);
-                    mp[s[j]] = j;
+                    st.insert(s[j]);
                 } else {
                     break;
                 }
