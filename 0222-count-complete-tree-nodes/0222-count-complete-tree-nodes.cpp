@@ -15,8 +15,7 @@ public:
     void preOrder(TreeNode* root, int& nodes) {
         if (!root)
             return;
-        if (root)
-            nodes++;
+        nodes++;
         preOrder(root->left, nodes);
         preOrder(root->right, nodes);
     }
