@@ -21,6 +21,8 @@ public:
         preOrder(root->right, nodes);
     }
     int countNodes(TreeNode* root) {
+        if (!root)
+            return 0;
         int nodes = 0;
         preOrder(root, nodes);
         return nodes;
