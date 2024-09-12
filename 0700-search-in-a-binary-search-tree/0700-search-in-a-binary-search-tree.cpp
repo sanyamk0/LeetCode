@@ -21,6 +21,6 @@ public:
             else
                 root = root->right;
         }
-        return NULL;
+        return root;
     }
 };
