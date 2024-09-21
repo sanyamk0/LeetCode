@@ -1,29 +1,30 @@
 class Solution {
 public:
-    vector<int> nextEl(vector<int> v) {
-        int n = v.size();
-        vector<int> ans(n);
-        stack<int> st;
-        for (int i = n - 1; i >= 0; i--) {
-            while (!st.empty() && st.top() <= v[i])
-                st.pop();
-            if (st.empty())
-                ans[i] = -1;
-            else
-                ans[i] = st.top();
-            st.push(v[i]);
-        }
-        return ans;
-    }
     vector<int> nextGreaterElements(vector<int>& nums) {
         int n = nums.size();
-        vector<int> v = nums;
-        for (auto it : nums)
-            v.push_back(it);
-        vector<int> temp = nextEl(v);
-        vector<int> ans;
-        for (int i = 0; i < n; i++)
-            ans.push_back(temp[i]);
-        return ans;
+        vector<int> nge(n);
+        for (int i = 0; i < n; i++) {
+            int first = 0, flag = 0;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[j] > nums[i]) {
+                    nge[i] = nums[j];
+                    first = 1;
+                    flag = 1;
+                    break;
+                }
+            }
+            if (!first) {
+                for (int j = 0; j < i; j++) {
+                    if (nums[j] > nums[i]) {
+                        nge[i] = nums[j];
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+            if (!flag)
+                nge[i] = -1;
+        }
+        return nge;
     }
 };
