@@ -21,9 +21,9 @@ public:
         for (auto it : nums)
             v.push_back(it);
         vector<int> temp = nextEl(v);
-        vector<int> ans(n);
+        vector<int> ans;
         for (int i = 0; i < n; i++)
-            ans[i] = temp[i];
+            ans.push_back(temp[i]);
         return ans;
     }
 };
