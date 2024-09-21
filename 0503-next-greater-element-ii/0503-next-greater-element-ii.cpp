@@ -4,19 +4,15 @@ public:
         int n = nums.size();
         vector<int> nge(n);
         stack<int> st;
-        for (int i = n - 1; i >= 0; i--) {
-            while (!st.empty() && st.top() <= nums[i])
-                st.pop();
-            st.push(nums[i]);
-        }
-        for (int i = n - 1; i >= 0; i--) {
-            while (!st.empty() && st.top() <= nums[i])
+        for (int i = 2 * n - 1; i >= 0; i--) {
+            int index = i % n;
+            while (!st.empty() && st.top() <= nums[index])
                 st.pop();
             if (st.empty())
-                nge[i] = -1;
+                nge[index] = -1;
             else
-                nge[i] = st.top();
-            st.push(nums[i]);
+                nge[index] = st.top();
+            st.push(nums[index]);
         }
         return nge;
     }
