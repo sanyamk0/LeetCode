@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
         int m = mat.size(), n = mat[0].size();
-        vector<vector<int>> ans(m, vector<int>(n, 0));
+        // vector<vector<int>> ans(m, vector<int>(n, 0));
         vector<vector<int>> vis(m, vector<int>(n, 0));
         queue<pair<pair<int, int>, int>> q;
         for (int r = 0; r < m; r++) {
@@ -20,7 +20,8 @@ public:
             int c = q.front().first.second;
             int dis = q.front().second;
             q.pop();
-            ans[r][c] = dis;
+            // ans[r][c] = dis;
+            mat[r][c] = dis;
             for (int i = 0; i < 4; i++) {
                 int nRow = r + dRow[i];
                 int nCol = c + dCol[i];
@@ -31,6 +32,7 @@ public:
                 }
             }
         }
-        return ans;
+        // return ans;
+        return mat;
     }
 };
