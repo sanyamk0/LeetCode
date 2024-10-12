@@ -17,6 +17,7 @@ public:
     void solve(vector<vector<char>>& board) {
         int m = board.size(), n = board[0].size();
         vector<vector<int>> vis(m, vector<int>(n, 0));
+        vector<vector<char>> ans(m, vector<char>(n));
         for (int r = 0; r < m; r++) {
             if (board[r][0] == 'O' && !vis[r][0])
                 dfs(r, 0, vis, board, m, n);
@@ -32,10 +33,11 @@ public:
         for (int r = 0; r < m; r++) {
             for (int c = 0; c < n; c++) {
                 if (vis[r][c] == 1)
-                    board[r][c] = 'O';
+                    ans[r][c] = 'O';
                 else
-                    board[r][c] = 'X';
+                    ans[r][c] = 'X';
             }
         }
+        board = ans;
     }
 };
