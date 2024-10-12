@@ -9,7 +9,7 @@ public:
             int nRow = r + delRow[i];
             int nCol = c + delCol[i];
             if (nRow >= 0 && nRow < m && nCol >= 0 && nCol < n &&
-                !vis[nRow][nCol] && board[nRow][nCol] != 'X') {
+                !vis[nRow][nCol] && board[nRow][nCol] == 'O') {
                 dfs(nRow, nCol, vis, board, m, n);
             }
         }
