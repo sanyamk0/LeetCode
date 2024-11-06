@@ -11,7 +11,7 @@ class Solution {
     // Function returns the second
     // largest elements
     int getSecondLargest(vector<int> &arr) {
-        int largest = INT_MIN, s_largest = -1, n = arr.size();
+        int largest = -1, s_largest = -1, n = arr.size();
         for(int i = 0; i < n; i++)
             if(arr[i] > largest)
                 largest = arr[i];
