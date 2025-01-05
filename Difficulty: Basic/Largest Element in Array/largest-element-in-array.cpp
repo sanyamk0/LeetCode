@@ -13,10 +13,12 @@ using namespace std;
 class Solution {
   public:
     int largest(vector<int> &arr) {
-        int largest = INT_MIN, n = arr.size();
-        for(int i = 0; i < n; i++)
-            if(largest < arr[i])
-                largest = arr[i];
+        int largest=INT_MIN;
+        for(auto it:arr){
+            if(it>largest){
+                largest=it;
+            }
+        }
         return largest;
     }
 };
