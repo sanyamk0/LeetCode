@@ -17,21 +17,15 @@ class Solution {
         int floorVal=-1,ceilVal=-1;
         while(s<=e){
             int mid=s+(e-s)/2;
-            if(arr[mid]<=x){
+            if(arr[mid]==x){
+                floorVal=ceilVal=arr[mid]   ;
+                break;
+            }else if(arr[mid]<x){
                 floorVal=arr[mid];
                 s=mid+1;
             }else{
-                e=mid-1;
-            }
-        }
-        s=0,e=n-1;
-        while(s<=e){
-            int mid=s+(e-s)/2;
-            if(arr[mid]>=x){
                 ceilVal=arr[mid];
                 e=mid-1;
-            }else{
-                s=mid+1;
             }
         }
         return {floorVal,ceilVal};
