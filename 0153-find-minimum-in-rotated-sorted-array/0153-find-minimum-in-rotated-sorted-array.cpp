@@ -9,8 +9,7 @@ public:
             if (nums[low] <= nums[high]) {
                 mini = min(mini, nums[low]);
                 break;
-            }
-            if (nums[low] <= nums[mid]) {
+            } else if (nums[low] <= nums[mid]) {
                 mini = min(mini, nums[low]);
                 low = mid + 1;
             } else {
