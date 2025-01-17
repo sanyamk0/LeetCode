@@ -1,33 +1,33 @@
 class Solution {
 public:
-    int dayPoss(vector<int> weights, int cap) {
-        int days = 1, load = 0;
-        for (int i = 0; i < weights.size(); i++) {
-            if (load + weights[i] > cap) {
-                days += 1;
-                load = weights[i];
+    int reqDays(vector<int> weights, int cap) {
+        int days = 1;
+        int sum = 0;
+        for (auto it : weights) {
+            if (sum + it <= cap) {
+                sum += it;
             } else {
-                load += weights[i];
+                sum = it;
+                days++;
             }
         }
         return days;
     }
     int shipWithinDays(vector<int>& weights, int days) {
-        int low = INT_MIN, high = 0;
-        for (auto it : weights) {
-            high += it;
-            if (it > low)
-                low = it;
-        }
+        int maxC = accumulate(weights.begin(), weights.end(), 0);
+        int minC = *max_element(weights.begin(), weights.end());
+        int low = minC, high = maxC;
+        int ans = -1;
         while (low <= high) {
-            int mid = (low + high) / 2;
-            int daysReq = dayPoss(weights, mid);
-            if (daysReq <= days) {
+            int mid = low + (high - low) / 2;
+            int d = reqDays(weights, mid);
+            if (d <= days) {
+                ans = mid;
                 high = mid - 1;
             } else {
                 low = mid + 1;
             }
         }
-        return low;
+        return ans;
     }
 };
