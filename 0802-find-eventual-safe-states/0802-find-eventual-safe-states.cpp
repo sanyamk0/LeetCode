@@ -16,12 +16,13 @@ public:
     }
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
         int n = graph.size();
-        vector<int> ans;
-        vector<int> vis(n, 0), pathVis(n, 0);
-        for (int i = 0; i < n; i++) {
-            if (dfs(i, vis, pathVis, graph) == false)
+        vector<int> ans, vis(n, 0), pathVis(n, 0);
+        for (int i = 0; i < n; i++)
+            if (!vis[i])
+                dfs(i, vis, pathVis, graph);
+        for (int i = 0; i < n; i++)
+            if (pathVis[i] == 0)
                 ans.push_back(i);
-        }
         return ans;
     }
 };
