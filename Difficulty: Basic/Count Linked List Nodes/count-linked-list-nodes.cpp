@@ -27,11 +27,11 @@ class Solution {
   public:
     // Function to count nodes of a linked list.
     int getCount(struct Node* head) {
-        Node* curr = head;
-        int cnt = 0;
-        while(curr){
+        int cnt=0;
+        Node*temp=head;
+        while(temp){
             cnt++;
-            curr = curr->next;
+            temp=temp->next;
         }
         return cnt;
     }
@@ -61,6 +61,7 @@ int main() {
         }
         Solution ob;
         cout << ob.getCount(head) << endl;
+        cout << "~" << endl;
     }
     return 0;
 }
