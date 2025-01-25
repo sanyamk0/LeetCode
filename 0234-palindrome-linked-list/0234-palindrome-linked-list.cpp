@@ -17,21 +17,12 @@ public:
             st.push(curr->val);
             curr = curr->next;
         }
-        ListNode* head2 = new ListNode(st.top());
-        st.pop();
-        ListNode* curr2 = head2;
-        while (!st.empty()) {
-            ListNode* temp = new ListNode(st.top());
-            st.pop();
-            curr2->next = temp;
-            curr2 = temp;
-        }
-        curr = head, curr2 = head2;
-        while (curr && curr2) {
-            if (curr->val != curr2->val)
+        curr = head;
+        while (curr) {
+            if (curr->val != st.top())
                 return false;
             curr = curr->next;
-            curr2 = curr2->next;
+            st.pop();
         }
         return true;
     }
