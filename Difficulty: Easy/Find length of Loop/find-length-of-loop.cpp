@@ -50,12 +50,13 @@ class Solution {
     int countNodesinLoop(Node *head) {
         unordered_map<Node*,int>mp;
         Node*curr=head;
-        int cnt=1;
+        int cnt=0;
         while(curr){
+            cnt++;
             if(mp.find(curr)!=mp.end()){
                 return cnt-mp[curr];
             }
-            mp[curr]=cnt++;
+            mp[curr]=cnt;
             curr=curr->next;
         }
         return 0;
