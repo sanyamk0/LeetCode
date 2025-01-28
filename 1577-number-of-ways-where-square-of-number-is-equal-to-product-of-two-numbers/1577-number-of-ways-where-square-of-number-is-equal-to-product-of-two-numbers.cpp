@@ -3,28 +3,24 @@ public:
     int numTriplets(vector<int>& nums1, vector<int>& nums2) {
         int n1 = nums1.size(), n2 = nums2.size();
         int cnt = 0;
-        long long sq = 1;
         long long pr = 1;
-        for (int i = 0; i < n1; i++) {
-            for (int j = 0; j < n2; j++) {
-                for (int k = j + 1; k < n2; k++) {
-                    sq = static_cast<long long>(nums1[i]) * nums1[i];
-                    pr = static_cast<long long>(nums2[j]) * nums2[k];
-                    if (sq == pr) {
-                        cnt++;
-                    }
-                }
+        unordered_map<long long, long long> mp1, mp2;
+        for (auto it : nums1) {
+            mp1[static_cast<long long>(it) * it]++;
+        }
+        for (int j = 0; j < n2; j++) {
+            for (int k = j + 1; k < n2; k++) {
+                pr = static_cast<long long>(nums2[j]) * nums2[k];
+                cnt += mp1[pr];
             }
         }
-        for (int i = 0; i < n2; i++) {
-            for (int j = 0; j < n1; j++) {
-                for (int k = j + 1; k < n1; k++) {
-                    sq = static_cast<long long>(nums2[i]) * nums2[i];
-                    pr = static_cast<long long>(nums1[j]) * nums1[k];
-                    if (sq == pr) {
-                        cnt++;
-                    }
-                }
+        for (auto it : nums2) {
+            mp2[static_cast<long long>(it) * it]++;
+        }
+        for (int j = 0; j < n1; j++) {
+            for (int k = j + 1; k < n1; k++) {
+                pr = static_cast<long long>(nums1[j]) * nums1[k];
+                cnt += mp2[pr];
             }
         }
         return cnt;
