@@ -1,27 +1,27 @@
-class Solution
-{
-private:
-    void solve(vector<int> nums, int index, vector<vector<int>> &ans)
-    {
-        if (index >= nums.size())
-        {
-            ans.push_back(nums);
+class Solution {
+public:
+    void func(vector<vector<int>>& ans, vector<int>& ds, vector<int>& mp,
+              vector<int>& nums) {
+        if (ds.size() == nums.size()) {
+            ans.push_back(ds);
             return;
         }
-        for (int i = index; i < nums.size(); i++)
-        {
-            swap(nums[index], nums[i]);
-            solve(nums, index + 1, ans);
-            swap(nums[index], nums[i]);
+        for (int i = 0; i < nums.size(); i++) {
+            if (!mp[i]) {
+                ds.push_back(nums[i]);
+                mp[i] = 1;
+                func(ans, ds, mp, nums);
+                ds.pop_back();
+                mp[i] = 0;
+            }
         }
     }
-
-public:
-    vector<vector<int>> permute(vector<int> &nums)
-    {
+    vector<vector<int>> permute(vector<int>& nums) {
+        int n = nums.size();
         vector<vector<int>> ans;
-        int index = 0;
-        solve(nums, index, ans);
+        vector<int> ds;
+        vector<int> mp(n, 0);
+        func(ans, ds, mp, nums);
         return ans;
     }
 };
