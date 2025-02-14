@@ -10,12 +10,9 @@ public:
             if (board[i][col] == c)
                 return false;
         // check 3 * 3 grid
-        int startRow = row - row % 3;
-        int startCol = col - col % 3;
-        for (int i = 0; i < 3; i++)
-            for (int j = 0; j < 3; j++)
-                if (board[startRow + i][startCol + j] == c)
-                    return false;
+        for (int i = 0; i <= 8; i++)
+            if (board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c)
+                return false;
         return true;
     }
     bool helper(vector<vector<char>>& board) {
@@ -25,11 +22,10 @@ public:
                     for (char c = '1'; c <= '9'; c++) {
                         if (isPossible(row, col, c, board)) {
                             board[row][col] = c;
-                            if (helper(board) == true) {
+                            if (helper(board) == true)
                                 return true;
-                            } else {
-                                board[row][col] = '.';
-                            }
+                            else
+                                board[row][col] = '.'; // backtracking step
                         }
                     }
                     return false;
