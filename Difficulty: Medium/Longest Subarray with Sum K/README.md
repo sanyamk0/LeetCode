@@ -1,11 +1,11 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1">Longest Subarray with Sum K</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 14pt;">Given an array <strong><code>arr[]</code></strong> containing integers and an integer <strong><code>k</code></strong>, your task is to find the length of the longest subarray where the sum of its elements is equal to the given value&nbsp;<strong style="font-size: 18.6667px;"><code>k</code></strong>. If there is no subarray with sum equal to&nbsp;<strong style="font-size: 18.6667px;"><code>k</code></strong>, return <strong style="font-size: 18.6667px;"><code>0</code></strong>.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=longest-sub-array-with-sum-k">Longest Subarray with Sum K</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 14pt;">Given an array <strong><code>arr[]</code></strong> containing integers and an integer <strong><code>k</code></strong>, your task is to find the length of the longest subarray where the sum of its elements is equal to the given value&nbsp;<strong style="font-size: 18.6667px;"><code>k</code></strong>. If there is no subarray with sum equal to&nbsp;<strong style="font-size: 18.6667px;"><code>k</code></strong>, return <strong style="font-size: 18.6667px;"><code>0</code></strong>.</span></p>
 <p><span style="font-size: 14pt;"><strong>Examples:</strong></span></p>
 <pre><span style="font-size: 14pt;"><strong>Input: </strong>arr[] = [10, 5, 2, 7, 1, -10], k = 15
 <strong>Output:</strong> 6
 <strong>Explanation: </strong></span><span style="font-size: 18.6667px;">Subarrays with sum = 15 are [5, 2, 7, 1], [10, 5] and [10, 5, 2, 7, 1, -10]. The length of the longest subarray with a sum of 15 is 6.</span></pre>
 <pre><span style="font-size: 14pt;"><strong>Input:</strong> arr[] = [-5, 8, -14, 2, 4, 12], k = -5
 <strong>Output:</strong> 5
-<strong>Explanation: </strong></span><span style="font-size: 18.6667px;">Only subarray with sum = 15 is [-5, 8, -14, 2, 4] of length 5.</span></pre>
+<strong>Explanation: </strong></span><span style="font-size: 18.6667px;">Only subarray with sum = -5 is [-5, 8, -14, 2, 4] of length 5.</span></pre>
 <pre><span style="font-size: 14pt;"><strong>Input:</strong> arr[] = [10, -10, 20, 30], k = 5
 <strong>Output:</strong> 0
 <strong>Explanation: </strong></span><span style="font-size: 18.6667px;">No subarray with sum = 5 is present in arr[].</span></pre>
