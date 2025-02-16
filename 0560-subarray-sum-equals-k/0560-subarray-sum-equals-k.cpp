@@ -7,7 +7,9 @@ public:
         mp[0] = 1;
         for (int i = 0; i < n; i++) {
             sum += nums[i];
-            cnt += mp[sum - k];
+            if (mp.find(sum - k) != mp.end()) {
+                cnt += mp[sum - k];
+            }
             mp[sum]++;
         }
         return cnt;
