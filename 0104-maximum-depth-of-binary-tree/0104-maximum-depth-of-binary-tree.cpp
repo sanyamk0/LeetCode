@@ -15,8 +15,23 @@ public:
     int maxDepth(TreeNode* root) {
         if (!root)
             return 0;
-        int l = maxDepth(root->left);
-        int r = maxDepth(root->right);
-        return 1 + max(l, r);
+        vector<vector<int>> ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty()) {
+            vector<int> level;
+            int s = q.size();
+            for (int i = 0; i < s; i++) {
+                TreeNode* front = q.front();
+                q.pop();
+                level.push_back(front->val);
+                if (front->left)
+                    q.push(front->left);
+                if (front->right)
+                    q.push(front->right);
+            }
+            ans.push_back(level);
+        }
+        return ans.size();
     }
 };
