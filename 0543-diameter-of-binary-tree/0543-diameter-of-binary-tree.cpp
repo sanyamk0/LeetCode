@@ -12,13 +12,21 @@
  */
 class Solution {
 public:
-    int findMax(TreeNode* root, int& diameter) {
-        if (!root)
+    int height(TreeNode* root) {
+        if (root == NULL)
             return 0;
-        int lh = findMax(root->left, diameter);
-        int rh = findMax(root->right, diameter);
-        diameter = max(diameter, lh + rh);
+        int lh = height(root->left);
+        int rh = height(root->right);
         return 1 + max(lh, rh);
+    }
+    void findMax(TreeNode* root, int& diameter) {
+        if (root == NULL)
+            return;
+        int lh = height(root->left);
+        int rh = height(root->right);
+        diameter = max(diameter, lh + rh);
+        findMax(root->left, diameter);
+        findMax(root->right, diameter);
     }
     int diameterOfBinaryTree(TreeNode* root) {
         int diameter = 0;
